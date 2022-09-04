@@ -1,5 +1,4 @@
 *.swp
 *.un~
-colors
-*.vim
+colors/
 undodir
