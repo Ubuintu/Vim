@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/ubuintu/.vim'
+let g:netrw_dirhist_5='/home/ubuintu/.vim/Keymaps'
+let g:netrw_dirhist_4='/home/ubuintu'
+let g:netrw_dirhist_3='/home/ubuintu/Documents'
+let g:netrw_dirhist_2='/home/ubuintu/Documents/Python'
+let g:netrw_dirhist_1='/home/ubuintu/.vim/Keymaps'
