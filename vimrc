@@ -79,9 +79,9 @@ set foldmethod=syntax
 set mouse=a
 
 "color space-vim-dark
-"color lucario
-color goldenrod 
+color lucario
 hi Normal guibg=NONE ctermbg=NONE
+"echo s:colors_d
 
 "this will enable code folding.
 " Use the marker method of folding.
@@ -106,17 +106,17 @@ augroup END
 " For visual mode only:
 " :vmap & :vnoremap
 
-" Edit vimrc configuration file in normal mode: <ldr>ve
-nnoremap <leader>confe :e ~/.vimrc<CR>
-
-" Edit vimrc configuration file in normal mode: <ldr>ve
-nnoremap <esc>rr :source ~/.vimrc<CR>
-
 " Set the backslash as the leader key.
 let mapleader = " "
 
 " Press \\ to jump back to the last cursor position.
 nnoremap <leader><leader> ``
+
+" Edit vimrc configuration file in normal mode: <ldr>ve
+nnoremap <leader>confe :e ~/.vimrc<CR>
+
+" Edit vimrc configuration file in normal mode: <ldr>ve
+nnoremap <leader>r :source ~/.vimrc<CR>
 
 " Press \p to print the current file to the default printer from a Linuxoperating system.
 " View available printers:   lpstat -v
@@ -135,10 +135,13 @@ function! ToggleLineNumber()
 endfunction
 
 " toggle the line numbers: <ldr>r
-map <leader>r :call ToggleLineNumber()<CR>
+map <leader>3 :call ToggleLineNumber()<CR>
 
 " Print features & hints of this vimrc
 map <leader>usage :call Usage()<CR>
+
+" Change colorscheme to one of the schemes in colors_d
+map <leader>nc :call NextColor()<CR>
 
 " Type jj to exit insert mode quickly.
 inoremap jj <Esc>
@@ -190,27 +193,45 @@ set laststatus=2
 " }}}
 
 " Functions & variables----------------------------------------------------------------- {{{
-"if !exists ("s:color_cnt")
-	let s:color_cnt = 0
-"endif
+if !exists ("s:color_cnt")
+	let s:color_cnt = 1
+endif
+
 
 " dictionaries can't have new liens
-let s:colors_d = { '0':'space-vim-dark', '1':'lucario',}
+let s:colors_d = { '1':'space-vim-dark', '2':'lucario',}
+
+" Variables
+let s:ldr_btn = "spacebar"
 
 func! Usage()
+	let l:msg = ""
 	echo "==================== VIMRC Usage ========================"
-	echo "Hello World"
+	echo "To call for this message again: " s:ldr_btn "+ {usage}"
+	echo "To toggle line number: " s:ldr_btn "+ 3"
+	echo "To reload vimrc: " s:ldr_btn "+ r"
+	echo "To change colorscheme: " s:ldr_btn "+ nc"
+	echo "To jump to last cursor position: " s:ldr_btn s:ldr_btn  
+	echo "To edit vimrc: " s:ldr_btn "+ {confe}"  
+	echo "To turn off highlighting from search: " s:ldr_btn "+ {h}"  
+	echo "To exit insert mode quickly: jj"
+	echo "To switch windows while in split view: CTRL+{j, k, h, or l}"
 	echo "========================================================="
 endfun
 
 func! NextColor()
 	let s:cur_color = ""
-	echo "color b4: " s:color_cnt
+	"echo "color b4: " s:color_cnt
 	let s:color_cnt = s:color_cnt + 1
-	echo "color now: " s:color_cnt
-	echo s:colors_d[s:color_cnt]
+	if s:color_cnt > len(s:colors_d)
+		let s:color_cnt = 1
+	endif
+	"echo "color now: " s:color_cnt
+	"echo s:colors_d[s:color_cnt]
+	"echo len(s:colors_d)
+	"echo s:color_cnt > len(s:colors_d)
 	let s:cur_color = s:colors_d[s:color_cnt]
-	echo s:
+	"echo s:
 	"colorscheme s:cur_color
 	exe "colorscheme " s:colors_d[s:color_cnt]
 endfun
