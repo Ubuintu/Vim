@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/tommy/Documents/LatexNotes'
+let g:netrw_dirhist_8='/home/tommy/Documents/LatexNotes/InvestingPics'
+let g:netrw_dirhist_7='/home/tommy/Documents/LatexNotes'
 let g:netrw_dirhist_6='/home/ubuintu/.vim'
 let g:netrw_dirhist_5='/home/ubuintu/.vim/Keymaps'
 let g:netrw_dirhist_4='/home/ubuintu'

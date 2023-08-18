@@ -80,7 +80,7 @@ set mouse=a
 
 "color space-vim-dark
 color lucario
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 "echo s:colors_d
 
 "this will enable code folding.
@@ -182,7 +182,7 @@ nnoremap <c-p> "+p
 vnoremap <c-p> "+p
 
 "https://vim.fandom.com/wiki/Smart_mapping_for_tab_completion 
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
 " }}}
 
